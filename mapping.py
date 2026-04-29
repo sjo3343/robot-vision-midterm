@@ -205,16 +205,17 @@ tutle=turtle.Turtle()
 window=turtle.Screen()
 window.screensize(1000,800)
 tutle.penup()
-tutle.goto(-450,350)
+#tutle.goto(-450,350)
 tutle.pendown()
 counter=0
 for actions in action_nums:
+    #goal frame
     tutle.pencolor('red') if abs(counter-27057)<15 else tutle.pencolor('black')
     match actions:
         case 1:
             tutle.forward(2)
         case 2:
-            tutle.left(2.5)
+            tutle.left(2.1)
         case 3:
-            tutle.right(2.5)
+            tutle.right(2.1)
     counter+=1
