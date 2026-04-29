@@ -29,13 +29,6 @@ feature_params = dict(
     blockSize=7         # Size of the neighborhood for corner detection
 )
 
-param_sets = [
-    dict(maxCorners=10,  qualityLevel=0.1, minDistance=7, blockSize=7),
-    dict(maxCorners=100, qualityLevel=0.1, minDistance=7, blockSize=7),
-    dict(maxCorners=100, qualityLevel=0.01, minDistance=3, blockSize=7),
-]
-labels = ["Few corners (max=10)", "Default (max=100, q=0.1)", "Aggressive (q=0.01, dist=3)"]
-
 lk_params = dict(
     winSize=(15, 15),   # Size of the search window around each point
     maxLevel=2,         # Number of pyramid levels (more on this later!)
