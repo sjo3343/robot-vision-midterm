@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import imageio
 import os
 import glob
 
@@ -13,13 +12,6 @@ all_frames = [cv2.imread(p) for p in image_paths]
 height, width = all_frames[0].shape[:2]
 print(f"Loaded {len(all_frames)} frames from {image_dir}/")
 print(f"Resolution: {width} x {height}")
-
-# Show the first frame
-plt.figure(figsize=(8, 6))
-plt.imshow(cv2.cvtColor(all_frames[0], cv2.COLOR_BGR2RGB))
-plt.title("Frame 0 — Robot's first-person view in the maze")
-plt.axis('off')
-plt.show()
 
 # Detect Shi-Tomasi corners
 feature_params = dict(
@@ -52,7 +44,7 @@ color_map = np.random.randint(0, 255, (5000, 3))
 next_color_idx = len(p0)
 track_colors = [color_map[i].tolist() for i in range(len(p0))]
 track_histories = [[tuple(p.ravel())] for p in p0]
-print(track_histories)
+
 for frame_idx, frame in enumerate(all_frames[1:], 1):
     frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
